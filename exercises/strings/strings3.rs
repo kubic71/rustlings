@@ -3,21 +3,29 @@
 // Execute `rustlings hint strings3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 fn trim_me(input: &str) -> String {
     // TODO: Remove whitespace from both ends of a string!
-    ???
+    input.trim().to_string()
 }
 
 fn compose_me(input: &str) -> String {
     // TODO: Add " world!" to the string! There's multiple ways to do this!
-    ???
+    format!("{} world!", input)
+}
+
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>())
 }
 
 fn replace_me(input: &str) -> String {
-    // TODO: Replace "cars" in the string with "balloons"!
-    ???
+    // input.replace(&str, &str) allocates new String on the heap and stores the replacement result there
+    print_type_of(&input.replace("cars", "balloons"));
+    input.replace("cars", "balloons")
+}
+
+fn main() {
+    replace_me("I think cars are cool");
 }
 
 #[cfg(test)]
